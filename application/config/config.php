@@ -524,5 +524,5 @@ $config['proxy_ips'] = '';
 
 /*Recaptcha keys*/
 
-$config['google_key'] = '6LdeYd4ZAAAAAOWPs7QhnE_y0R0-sfO2isbB6ore';
-$config['google_secret'] = '6LdeYd4ZAAAAACx6fscT5lCZXoSurODtbzfxpzK6';
+$config['google_key'] = '6LfUY94ZAAAAAFlK8cbfTlechCmQBJAnHSHTwclF';
+$config['google_secret'] = '6LfUY94ZAAAAAAUH5bn7U-kYKTPv4uw19w41gc4k';
