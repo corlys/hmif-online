@@ -114,6 +114,7 @@
                     async: true,
                     error: function(data) {
                         alert(data);
+                        console.log(data)
                     }
 
                 }).done(function(data) {
