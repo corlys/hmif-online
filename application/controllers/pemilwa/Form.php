@@ -177,7 +177,7 @@ class Form extends CI_Controller
                     curl_setopt($ch, CURLOPT_POST, 1);
                     curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla');
                     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postFields));
-                    curl_setopt($ch, CURLOPT_COOKIEJAR, "wontworkwithoutthis");
+                    curl_setopt($ch, CURLOPT_COOKIEJAR, "");
                     $response = curl_exec($ch);
 
                     curl_close($ch);
