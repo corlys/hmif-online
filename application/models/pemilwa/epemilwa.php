@@ -1,5 +1,5 @@
 <?php
-
+//harus kapital namanya
 class Epemilwa extends CI_Model
 {
 
