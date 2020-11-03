@@ -1,0 +1,129 @@
+
+#sjr-timeline {
+    
+    background-color: hsl(0, 0%, 94%);
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+#sjr-timeline .title{
+
+    text-align: center;
+    padding: 2px;
+    margin: 0px auto;
+    margin-bottom: 5%;
+}
+
+#sjr-timeline .title p{
+
+    font-size: 1.4em;
+ 
+}
+
+#sjr-timeline h1{
+
+    font-size: 2.3em;
+    text-align: center;
+    margin-top: 10%;
+    font-weight: bold;
+ 
+}
+
+.sjr-line{
+    height: 100%;
+    width: 2px;
+    background-color: rgba(10, 14, 33);
+    border-radius: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10%;
+    position: absolute;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    z-index: -1;
+}
+
+.boxright{
+    margin-left: 55%;
+
+}
+
+.boxleft{
+    margin-left: 4.5%;
+
+}
+
+.yeartext{
+    position: relative;
+    color: white;
+    text-align: center;
+    font-size: 1.4em;
+    margin-top: 5%;
+    
+    
+}
+
+.sjr-box{
+    /* background-color: white; */
+    background-color: rgb(49, 96, 154);
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    /* padding: 2%; */
+    min-height: 100px;
+    width: 40%;
+    border-radius: 5px;
+    margin-bottom: 5%;
+    min-height: 100px;
+    overflow: hidden;
+    
+}
+
+.sjr-insideboxleft{
+    min-height: inherit;
+    width: 25%;
+    background-color: rgb(49, 96, 154);
+    border-radius: 5px 0px 0px 5px;
+    float:left;
+   
+}
+.sjr-insideboxright{
+    min-height: inherit;
+    width: 25%;
+    background-color: rgb(49, 96, 154);
+    border-radius: 0px 5px 5px 0px;
+    float:right;
+    
+    
+}
+
+.textboxright{
+    width: 75%;
+    /* min-height: 100px; */
+    float: right;
+    background-color:white;
+    border-radius: 0px 5px 5px 0px;
+    /* overflow: hidden; */
+}
+
+.textboxleft{
+    width: 75%;
+    /* min-height: 100px; */
+    float: left;
+    background-color: white;
+/* overflow: hidden; */
+    border-radius: 5px 0px 0px 5px;
+
+}
+
+@media only screen and (max-width:800px) {
+
+
+    .sjr-line{
+        height: 230vh;
+    }
+    #sjr-timeline h1{
+
+        margin-top: 20%;
+       
+     
+    }
+
+}

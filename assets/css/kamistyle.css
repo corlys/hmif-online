@@ -1,0 +1,185 @@
+#kami-hmif .foto-keluarga{
+    min-height:30vh;
+    width: 100%;
+    /* background-color: blue; */
+    /* border-radius: 10px; */
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    /* z-index: 1; */
+    overflow: hidden;
+
+}
+#kami-hmif .foto-keluarga img{
+    height: auto;
+    width: 100%;
+}
+
+/* di edit padding margin */
+#kami-hmif .logo-hmif{
+    height: 70vh;
+    width: 100%;
+    overflow: hidden;
+    padding: 2% 0%;
+    text-align: center;
+    /* margin-top: 2%; */
+    margin: 10% auto 0px;
+    z-index: 1;
+
+}
+
+/* di edit hv */
+#kami-hmif .logo-hmif .box-left{
+    background-color: white;
+    height: 20vh;
+    width: 40%;
+    padding: 1%;
+    float: left;
+    margin-left: 4%;
+}
+
+#kami-hmif .logo-hmif .box-right{
+    background-color: white;
+    height: 20vh;
+    width: 40%;
+    padding: 1%;
+    float: right;
+    margin-right: 4%;
+}
+#kami-hmif .logo-hmif p{
+    padding: 2%;
+}
+#kami-hmif .logo-hmif .box-right img{
+
+    height: auto;
+    width: 100%;
+    border-radius: 5px;
+    transition: 0.4s;
+}
+#kami-hmif .logo-hmif .box-right img:hover{
+
+    box-shadow: 0px 5px 20px 5px rgba(0, 0, 0, 0.2);
+    
+}
+#kami-hmif .logo-hmif .box-left img:hover{
+
+    box-shadow: 0px 5px 20px 5px rgba(0, 0, 0, 0.2);
+    
+}
+
+#kami-hmif .logo-hmif .box-left img{
+
+    height: auto;
+    width: 100%;
+    border-radius: 5px;
+    transition: 0.4s;
+}
+#kami-hmif .logo-hmif img{
+    height: 100%;
+    width: auto;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 7%;
+
+}
+
+#kami-hmif .content{
+    /* background-color: white; */
+    /* background-color : rgb(40,46,61); */
+    /* background-color : rgb(54,129,186); */
+    width: 100%;
+    /* margin-top: 2%; */
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 40vh;
+    /* box-shadow: 0px 6px px 0px rgba(0, 0, 0, 0.2); */
+    /* border-radius : 10px; */
+    padding-top: 0.1px;
+    padding-bottom: 0.1px;
+    
+    
+}
+
+#kami-hmif .content .realcontent{
+    /* background-color: red; */
+    
+    width: 100%;
+    /* margin-top: 5%;
+    margin-bottom: 5%; */
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 40vh;
+    padding: 2%;
+    text-align: center;
+    
+}
+#kami-hmif .content .realcontent p{
+
+    /* color : white; */
+}
+
+
+
+#kami-hmif .adartlink{
+    padding: 1%;
+    width: 80%;
+    color: white;
+    /* background-color: rgb(132, 194,152); */
+    background-color: rgb(40,46,61);
+    /*border-radius: 10px;*/
+    display: block;
+    min-height: 8vh;
+    font-size: 1.5em;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+    transition: 0.2s;
+    text-align: center;
+    margin : 1% auto;
+
+}
+
+#kami-hmif .adartlink:hover{
+    color:  rgb(40,46,61);
+    /* background-color: rgb(132, 194,152); */
+    background-color:white;
+}
+.padding-0 {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.materialbox2 {
+    background-color: white;
+    box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.2);
+    padding: 2%;
+    border-radius: 10px;
+
+}
+
+.clear-float{
+    clear: both;
+}
+
+@media only screen and (max-width:800px) {
+    #kami-hmif .logo-hmif {
+        height: 40vh;
+    }
+    #kami-hmif .logo-hmif img {
+        width: auto;
+    }
+
+    #kami-hmif .logo-hmif .box-right{
+
+        
+        height: 30vh;
+        width: 45%;
+        
+    
+    }
+    #kami-hmif .logo-hmif .box-left{
+
+        
+        height: 30vh;
+        width: 45%;
+        
+    
+    }
+
+
+}

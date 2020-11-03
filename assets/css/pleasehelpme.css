@@ -1,0 +1,146 @@
+/* Halaman EMIF & BPMIF */
+
+#dep-list{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.icon-emiffff{
+    width: 100%;
+}
+
+.next-dep-pop, .prev-dep-pop{
+    position: fixed;
+    top: 26%;
+    right: 2%;
+    height: 50px;
+    width: 50px;
+    padding: 1%;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.section-child{
+
+}
+
+.container-dep{
+    height: 75vh;
+    /*background-color: #3681ba;*/
+    background: rgb(40, 46, 61);
+    background: -moz-linear-gradient(180deg, rgba(40, 46, 61, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(40, 46, 61, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    background: linear-gradient(180deg, rgba(40, 46, 61, 1) 0%, rgba(0, 212, 255, 1) 100%);
+}
+
+#lembaga-hmif{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-flow: row wrap;
+}
+
+.lembaga-item {
+    min-width: 30%;
+    height: 240px;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #282e3d;
+    border: 1px solid white;
+    margin: 0 7.5px 15px;
+    overflow: hidden;
+}
+
+.lembaga-item .content {
+    height: 90px;
+    width: 250px;
+    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    background-color: white;
+    opacity: .5;
+    /* position: absolute; */
+}
+
+.content .title {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 22px;
+    color: #4a4a4a;
+}
+
+.content .subtitle {
+    font-weight: lighter;
+    font-size: 16px;
+}
+
+#hmif-background{
+    background-image: url(../images/logo-emif.png);
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#bpmif-background{
+    background-image: url(../images/logo-bpmif.png);
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* #lembaga-hmif .child-item .ifbox{
+    height: 100px;
+} */
+
+.lembaga-header{
+    width: 100%;
+    margin: 10%;
+}
+
+.kenalan{
+    font-size: 3.5rem !important;
+    font-weight: 500;
+    font-family: BebasNeue !important;
+    letter-spacing: 2px;
+    line-height: 75px;
+    color: white;
+}
+
+@media (max-width:460px) {
+    .lembaga-header{
+        text-align: center;
+    }
+
+    .kenalan {
+        font-size: 3rem !important;
+        font-weight: 500;
+        font-family: BebasNeue !important;
+        letter-spacing: 2px;
+        line-height: 75px;
+        color: white;
+    }
+}
+
+
+/* Contacts */
+
+#map {
+    height: 400px;
+    width: 100%;
+}
