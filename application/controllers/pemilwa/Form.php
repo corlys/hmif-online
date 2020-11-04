@@ -153,7 +153,7 @@ class Form extends CI_Controller
                 $data['success'] = false;
                 $data['errors'] = $errors;
             } else {
-
+                //angkatan 13-19
                 $allowed  = array('13', '14', '15', '16', '17', '18', '19');
 
                 if (in_array(substr($_POST['nim'], 0, 2), $allowed) || strlen($_POST['nim']) != 15) {
@@ -184,52 +184,70 @@ class Form extends CI_Controller
                     $html = new simple_html_dom();
                     $html->load($response);
                     $scrappednim = null;
+
+                    //if nim exist that means login success
+
                     if ($html->find('div[class="textgreen"] b', 0)) {
 
-                        $scrappednim = $html->find('div[class="textgreen"] b', 0)->innertext;
-                        $md5nim = md5($scrappednim);
-                        $sh1nim = sha1($md5nim);
-                        $cryptnim  = crypt($sh1nim, $sallydontgo);
-                        $name = $html->find('div[class=bio-name"]', 0)->innertext;
+                        //if doi is TIF
 
-                        $isSuccess = $this->model_pemilwa->duplicateCheck($cryptnim);
-                        // $redirectkey = $cryptnim;
-                        if (!$isSuccess) {
-                            $data_pass = array(
-                                'nama_lengkap'  => $name,
-                                'nim' => $cryptnim,
-                                'pilih' => 0,
-                                'keuze' => "optie"
-                            );
-                            $isSuccess = $this->model_pemilwa->input_data($data_pass);
-                            // $redirectkey = $cryptnim;
+                        $isTif = false;
+                        $jurusan = $html->find('div[class=bio-info"] div', 3)->innertext;
+                        if (strpos($jurusan, 'Teknik Informatika') !== false) {
+                            $isTif = true;
                         }
-                    }
+
+                        if ($isTif) {
+                            $scrappednim = $html->find('div[class="textgreen"] b', 0)->innertext;
+                            $md5nim = md5($scrappednim);
+                            $sh1nim = sha1($md5nim);
+                            $cryptnim  = crypt($sh1nim, $sallydontgo);
+                            $name = $html->find('div[class=bio-name"]', 0)->innertext;
+
+                            $isSuccess = $this->model_pemilwa->duplicateCheck($cryptnim);
+                            // $redirectkey = $cryptnim;
+                            if (!$isSuccess) {
+                                $data_pass = array(
+                                    'nama_lengkap'  => $name,
+                                    'nim' => $cryptnim,
+                                    'pilih' => 0,
+                                    'keuze' => "optie"
+                                );
+                                $isSuccess = $this->model_pemilwa->input_data($data_pass);
+                                // $redirectkey = $cryptnim;
+                            }
+
+                            // if there are no errors process our form, then return a message
+                            // $isSuccess = $this->m_data->input_data($data_pass);
 
 
-                    // if there are no errors process our form, then return a message
-                    // $isSuccess = $this->m_data->input_data($data_pass);
+                            // DO ALL YOUR FORM PROCESSING HERE
+                            // THIS CAN BE WHATEVER YOU WANT TO DO (LOGIN, SAVE, UPDATE, WHATEVER)
 
+                            // show a message of success and provide a true success variable
+                            if ($isSuccess) {
 
-                    // DO ALL YOUR FORM PROCESSING HERE
-                    // THIS CAN BE WHATEVER YOU WANT TO DO (LOGIN, SAVE, UPDATE, WHATEVER)
+                                // $this->session->set_userdata($userdata);
+                                $this->session->set_userdata('cry', $cryptnim);
+                                //destroy with $this->session->sess_destroy();
+                                //check with isset($_SESSION['kanye'])
 
-                    // show a message of success and provide a true success variable
-                    if ($isSuccess) {
-
-                        // $this->session->set_userdata($userdata);
-                        $this->session->set_userdata('cry', $cryptnim);
-                        //destroy with $this->session->sess_destroy();
-                        //check with isset($_SESSION['kanye'])
-
-                        $data['success'] = true;
-                        // $data['message'] = 'Wait for Redirect';
-                        $data['message'] = "SUCCESS, PLEASEEE WAIT FOR REDIRECT";
-                        // $data['redirectkey'] = $redirectkey;
-                        // redirect(base_url() . "pemilwa/test");
+                                $data['success'] = true;
+                                // $data['message'] = 'Wait for Redirect';
+                                $data['message'] = "SUCCESS, PLEASEEE WAIT FOR REDIRECT";
+                                // $data['redirectkey'] = $redirectkey;
+                                // redirect(base_url() . "pemilwa/test");
+                            } else {
+                                $data['success'] = false;
+                                $data['errors'] = $errors;
+                            }
+                        } else {
+                            $data['success'] = false;
+                            $data['message'] = "Anda Bukan Dari Jurusan Teknik Informatika";
+                        }
                     } else {
                         $data['success'] = false;
-                        $data['errors'] = $errors;
+                        $data['message'] = "Password Salah";
                     }
                 } else {
                     $data['success'] = false;
