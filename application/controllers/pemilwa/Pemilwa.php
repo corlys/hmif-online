@@ -25,7 +25,7 @@ class Pemilwa extends CI_Controller
                 // print_r($this->session->userdata('cry'));
                 redirect(base_url());
             } else {
-                $data['name'] = "test";
+                $data['name'] = $this->session->userdata('name');;
                 //belum pilih
                 $this->parser->parse('pemilwa/form_pemilwa_trika', $data);
             }

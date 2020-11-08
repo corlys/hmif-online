@@ -35,8 +35,9 @@
             height: auto;
             display: grid;
             place-items: center;
-            grid-gap: 1rem;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-gap: 20px 50px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-auto-rows: min-content;
         }
 
         .card-img {
@@ -45,9 +46,11 @@
         }
 
         .card {
-            width: clamp(23ch, 50%, 46ch);
+            width: clamp(23ch, 100%, 46ch);
             display: flex;
+            height: 100%;
             align-items: center;
+            justify-content: space-evenly;
             flex-direction: column;
             padding: 1rem;
         }
@@ -64,12 +67,36 @@
         .header2 {
             padding-top: 100px;
         }
+
+        .calon-wrapper {
+            width: 100%;
+        }
+
+        .doi1 {
+            float: left;
+        }
+
+        .doi2 {
+            float: right;
+        }
+
+
+        #vote-submit {
+            grid-column: 1/-1;
+            height: 50px;
+            width: 100%;
+            align-self: end;
+            /* align item to bottom of row */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 
 <body>
     <div class="header2">
         <h4 id="title_calon" style="text-align:center;">Selamat Memilih</h4>
-        <h5 style="text-align:center;">NIM</h5>
+        <h5 style="text-align:center;"><?= $name; ?></h5>
     </div>
 
 
@@ -125,37 +152,46 @@
         <form id="form" class="tengahin" action="" method="POST">
             <div class="parent">
                 <div class="card">
-                    <h3>Title - Card 1</h3>
-                    <p contenteditable>Medium length description with a few more words here.</p>
+                    <div class="calon-wrapper">
+                        <h3 class="doi1">JoJo</h3>
+                        <br />
+                        <h3 class="doi2">Hisyam</h3>
+                    </div>
+                    <p contenteditable>Long Description. Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                     <img class="card-img" src="assets/keluargahmif/rumah/ketua.png" alt="Card image cap">
-                    <!-- <input type="hidden" id="calon1" name="calon1" value="1111"> -->
                     <label>
                         <input type="checkbox" class="radio" value="jojo" name="calon" /><span>JoJo</span>
                     </label>
-                    <!-- <input type="checkbox" class="radio" value="jojo" name="calon" /> -->
-                    <!-- <div class="btn-wrap" style="text-align:center;">
-                        <button type="submit" class="btn btn-primary" name="submit">VOTE</button>
-                    </div> -->
                 </div>
 
                 <div class="card">
-                    <h3>Title - Card 2</h3>
+                    <div class="calon-wrapper">
+                        <h3 class="doi1">JoJo</h3>
+                        <br />
+                        <h3 class="doi2">Hisyam</h3>
+                    </div>
                     <p contenteditable>Long Description. Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                     <img class="card-img" src="assets/keluargahmif/rumah/wakil.png" alt="Card image cap">
                     <label>
                         <input type="checkbox" class="radio" value="hisyam" name="calon" /><span>Hisyam</span>
                     </label>
-                    <!-- <input type="checkbox" class="radio" value="hisyam" name="calon" /> -->
-                    <!-- <input type="hidden" id="calon2" name="calon2" value="2222">
+                </div>
 
-                    <div class="btn-wrap" style="text-align:center;">
-                        <button type="submit" class="btn btn-primary" name="submit">VOTE</button>
-                    </div> -->
+                <div class="card">
+                    <div class="calon-wrapper">
+                        <h3 class="doi1">Abstain</h3>
+                    </div>
+                    <p contenteditable>Long Description. Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                    <img class="card-img" src="assets/keluargahmif/rumah/wakil.png" alt="Card image cap">
+                    <label>
+                        <input type="checkbox" class="radio" value="abstain" name="calon" /><span>Abstain</span>
+                    </label>
+                </div>
+                <div id="vote-submit">
+                    <button type="submit" class="btn btn-primary" name="submit" id="submitform">VOTE</button>
                 </div>
             </div>
-            <div style="text-align:center;">
-                <button type="submit" class="btn btn-primary" name="submit" id="submitform">VOTE</button>
-            </div>
+
         </form>
     </div>
 

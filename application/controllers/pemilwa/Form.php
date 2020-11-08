@@ -227,16 +227,28 @@ class Form extends CI_Controller
                             // show a message of success and provide a true success variable
                             if ($isSuccess) {
 
-                                // $this->session->set_userdata($userdata);
-                                $this->session->set_userdata('cry', $cryptnim);
-                                //destroy with $this->session->sess_destroy();
-                                //check with isset($_SESSION['kanye'])
+                                $udahPilih = $this->model_pemilwa->udahPilih($cryptnim);
+                                if (!$udahPilih) {
+                                    $userdata = array(
+                                        'cry' => $cryptnim,
+                                        'name' => $name
+                                    );
+                                    $this->session->set_userdata($userdata);
 
-                                $data['success'] = true;
-                                // $data['message'] = 'Wait for Redirect';
-                                $data['message'] = "SUCCESS, PLEASEEE WAIT FOR REDIRECT";
-                                // $data['redirectkey'] = $redirectkey;
-                                // redirect(base_url() . "pemilwa/test");
+                                    // $this->session->set_userdata('cry', $cryptnim);
+                                    //destroy with $this->session->sess_destroy();
+                                    //check with isset($_SESSION['kanye'])
+
+                                    $data['success'] = true;
+                                    // $data['message'] = 'Wait for Redirect';
+                                    $data['message'] = "SUCCESS, PLEASEEE WAIT FOR REDIRECT";
+                                    // $data['redirectkey'] = $redirectkey;
+                                    // redirect(base_url() . "pemilwa/test");
+                                } else {
+
+                                    $data['success'] = false;
+                                    $data['message'] = "Anda sudah Memilih";
+                                }
                             } else {
                                 $data['success'] = false;
                                 $data['errors'] = $errors;

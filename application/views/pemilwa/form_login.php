@@ -37,10 +37,10 @@
     </div>
     <div class="formBox">
         <form id="form" class="tengahin" action="" method="POST">
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label>Nama Lengkap</label>
                 <input type="text" class="form-control" placeholder="Nama Lengkap (wajib diisi)" name="nama_lengkap" required>
-            </div>
+            </div> -->
             <div class="form-group">
                 <label>NIM</label>
                 <input type="number" class="form-control" placeholder="NIM (wajib diisi)" name="nim" required>
@@ -120,7 +120,7 @@
                 }).done(function(data) {
                     console.log(data)
                     $("#loading").hide();
-                    $('button[type=submit], input[type=submit]').prop('disabled', false);
+                    // $('button[type=submit], input[type=submit]').prop('disabled', false);
                     grecaptcha.reset();
 
                     if (!data.success) {
