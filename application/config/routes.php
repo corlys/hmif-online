@@ -63,3 +63,17 @@ $route['pemilwa/login'] = 'pemilwa/Form/login_pemilwa';
 $route['pemilwa/test'] = 'pemilwa/Form/test';
 $route['pemilwa/qc'] = 'pemilwa/Pemilwa/testqc';
 $route['pemilwa/register/add'] = 'pemilwa/Form/register_pemilwa';
+
+//Projek PIP
+$route["projekpip"] = 'projekpip/Projekpip/index';
+$route["projekpip/(:num)"] = 'projekpip/Projekpip/index/$1';
+$route['projekpip/form'] = 'projekpip/Projekpip/form';
+$route['projekpip/login'] = 'projekpip/Projekpip/loginInit';
+$route['projekpip/loginAuth'] = 'projekpip/Projekpip/loginAuth';
+$route['projekpip/register'] = 'projekpip/Projekpip/registerInit';
+$route['projekpip/registerAuth'] = 'projekpip/Projekpip/registerAuth';
+$route['projekpip/logout'] = 'projekpip/Projekpip/logoutAuth';
+$route['projekpip/newpost'] = 'projekpip/Projekpip/newPost';
+$route['projekpip/handlenewpost'] = 'projekpip/Projekpip/reqNewPost';
+// $route['projekpip/ajaxPaginationData'] = 'projekpip/Projekpip/ajaxPaginationData';
+$route['projekpip/test'] = 'projekpip/Projekpip/test';
