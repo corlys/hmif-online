@@ -18,8 +18,44 @@
 
 <body>
     <header class="App-header">
-        <h1>ProjekPIP</h1>
+        <img class="logo" src="" alt="logo" />
+        <div class="nav">
+            <ul class="nav_links">
+                <li><a href="<?= base_url('projekpip') ?>">HOME</a></li>
+                <?php if ($this->session->userdata('nim')) : ?>
+                    <li><a href="<?= base_url('projekpip/newpost') ?>">POST</a></li>
+                    <li><a href="<?= base_url('projekpip/logout') ?>">LOGOUT</a></li>
+                <?php else : ?>
+                    <li><a href="<?= base_url('projekpip/login') ?>">LOGIN</a></li>
+                    <li><a href="<?= base_url('projekpip/register') ?>">REGISTER</a></li>
+                <?php endif; ?>
+            </ul>
+        </div>
+        <a class="cta" href="http://hmif.filkom.ub.ac.id/hubungi-kami"><button>Contacts</button></a>
+        <a class="menu" onclick="openNav()"><button>Menu</button></a>
     </header>
+    <div id="mobile_menu" class="overlay">
+        <a class="close" onclick="closeNav()">&times;</a>
+        <div class="overlay_content">
+            <a href="<?= base_url('projekpip') ?>">HOME</a>
+            <?php if ($this->session->userdata('nim')) : ?>
+                <a href="<?= base_url('projekpip/newpost') ?>">POST</a>
+                <a href="<?= base_url('projekpip/logout') ?>">LOGOUT</a>
+            <?php else : ?>
+                <a href="<?= base_url('projekpip/login') ?>">LOGIN</a>
+                <a href="<?= base_url('projekpip/register') ?>">REGISTER</a>
+            <?php endif; ?>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function openNav() {
+            document.getElementById('mobile_menu').style.width = "100%"
+        }
+
+        function closeNav() {
+            document.getElementById('mobile_menu').style.width = "0%"
+        }
+    </script>
     <main>
         <form class="App-form" id="form" action="" method="POST">
             <div class="input-field">
@@ -51,7 +87,7 @@
                 </div>
             </div>
             <div id="post-submit">
-                <button type="submit" class="btn btn-primary" name="submit" id="submitform">POST</button>
+                <button type="submit" class="btn btn-primary" name="submit" id="submitform">REGISTER</button>
             </div>
         </form>
     </main>

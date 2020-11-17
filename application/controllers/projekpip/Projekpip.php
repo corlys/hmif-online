@@ -45,7 +45,7 @@ class Projekpip extends CI_Controller
         $config['prev_tag_open'] = '<li class="waves-effect">';
         $config['prev_tag_close'] = '</li>';
 
-        $config['cur_tag_open'] = '<li class="active"><a href="#!">';
+        $config['cur_tag_open'] = '<li class="active grey darken-1"><a href="#!">';
         $config['cur_tag_close'] = '</a></li>';
 
         $config['num_tag_open'] = '<li class="waves-effect">';
@@ -303,7 +303,7 @@ class Projekpip extends CI_Controller
                                 if ($isSuccess) {
                                     $this->session->set_userdata($userdata);
                                     $data['success'] = true;
-                                    $data['message'] = "Berhasil Melakukakn Registrasi";
+                                    $data['message'] = "Berhasil Melakukakn Login";
                                 } else {
                                     $data['success'] = false;
                                     $data['message'] = "Error Creating Session";

@@ -15,9 +15,44 @@
 
 <body>
     <header class="App-header">
-        <h1>ProjekPIP</h1>
-        <h1><?= $total_rows; ?> projects ...</h1>
+        <img class="logo" src="" alt="logo" />
+        <div class="nav">
+            <ul class="nav_links">
+                <li><a href="<?= base_url('projekpip') ?>">HOME</a></li>
+                <?php if ($this->session->userdata('nim')) : ?>
+                    <li><a href="<?= base_url('projekpip/newpost') ?>">POST</a></li>
+                    <li><a href="<?= base_url('projekpip/logout') ?>">LOGOUT</a></li>
+                <?php else : ?>
+                    <li><a href="<?= base_url('projekpip/login') ?>">LOGIN</a></li>
+                    <li><a href="<?= base_url('projekpip/register') ?>">REGISTER</a></li>
+                <?php endif; ?>
+            </ul>
+        </div>
+        <a class="cta" href="http://hmif.filkom.ub.ac.id/hubungi-kami"><button>Contacts</button></a>
+        <a class="menu" onclick="openNav()"><button>Menu</button></a>
     </header>
+    <div id="mobile_menu" class="overlay">
+        <a class="close" onclick="closeNav()">&times;</a>
+        <div class="overlay_content">
+            <a href="<?= base_url('projekpip') ?>">HOME</a>
+            <?php if ($this->session->userdata('nim')) : ?>
+                <a href="<?= base_url('projekpip/newpost') ?>">POST</a>
+                <a href="<?= base_url('projekpip/logout') ?>">LOGOUT</a>
+            <?php else : ?>
+                <a href="<?= base_url('projekpip/login') ?>">LOGIN</a>
+                <a href="<?= base_url('projekpip/register') ?>">REGISTER</a>
+            <?php endif; ?>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function openNav() {
+            document.getElementById('mobile_menu').style.width = "100%"
+        }
+
+        function closeNav() {
+            document.getElementById('mobile_menu').style.width = "0%"
+        }
+    </script>
     <main class="App">
         <div class="search-wrapper">
             <form action="<?= base_url('projekpip/'); ?>" method="GET">
@@ -39,15 +74,7 @@
                         <span class="card-title">Welcome, Anon</span>
                     <?php endif; ?>
                 </div>
-                <div class="card-action">
-                    <?php if ($this->session->userdata('nim')) : ?>
-                        <a href="<?= base_url('projekpip/newpost') ?>">POST</a>
-                        <a href="<?= base_url('projekpip/logout') ?>">Logout</a>
-                    <?php else : ?>
-                        <a href="<?= base_url('projekpip/login') ?>">Login</a>
-                        <a href="<?= base_url('projekpip/register') ?>">Register</a>
-                    <?php endif; ?>
-                </div>
+
             </div>
         </div>
         <div class="projects-wrapper" id="dataList">
@@ -56,16 +83,16 @@
                     <?php else : ?>
                         <?php foreach ($posts as $post) : ?>
                             <div class="card horizontal">
-                                <div class="card-image">
+                                <!-- <div class="card-image">
                                     <img src="https://lorempixel.com/100/190/nature/6">
-                                </div>
+                                </div> -->
                                 <div class="card-stacked">
                                     <div class="card-content">
                                         <span class="card-title"><?= $post['nama_repo']; ?></span>
                                         <p><?= $post['description']; ?></p>
                                     </div>
                                     <div class="card-action">
-                                        <a href="https://github.com/<?= $post['github_name']; ?>/<?= $post['nama_repo']; ?>">Made By <?= $post['github_name']; ?></a>
+                                        <a href="https://github.com/<?= $post['github_name']; ?>/<?= $post['nama_repo']; ?>"><span class="blue-text text-darken-2">Made By <?= $post['github_name']; ?></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -109,7 +136,6 @@
     </script>
     <script>
         $(document).ready(function() {
-
             $('select').formSelect();
 
 
