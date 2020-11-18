@@ -15,7 +15,7 @@
 
 <body>
     <header class="App-header">
-        <img class="logo" src="" alt="logo" />
+        <div class="logo"><span class="thin">projek</span><span class="bold">pip</span></div>
         <div class="nav">
             <ul class="nav_links">
                 <li><a href="<?= base_url('projekpip') ?>">HOME</a></li>

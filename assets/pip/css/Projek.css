@@ -35,6 +35,20 @@ body{
     cursor: pointer;
 }
 
+.logo .thin {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 100;
+    color: white;
+}
+
+.logo .bold {
+    color:  rgba(0, 136, 169, 1);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 400;
+}
+
 .nav_links {
     list-style: none;
 }
