@@ -144,8 +144,6 @@ body{
     grid-template-rows: minmax(150px, auto);
 }
 
-/* try responsive */
-
 @media only screen and (max-width: 550px) {
     .App {
         grid-template-columns: 1fr;
@@ -204,11 +202,16 @@ body{
     background-color: #282c34;
     /* min-height: 100vh; */
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
+    font-family: 'Montserrat', sans-serif;
     color: white;
+    padding: 30px 10%;
+}
+
+.App-footer #copyright {
+    font-size: 20px;
 }
 
 .search-wrapper{
@@ -250,6 +253,8 @@ body{
 }
 
 .pagination-wrapper{
+    padding-top: 24px;
+    padding-bottom: 24px;
     grid-row: span 1;
 }
 

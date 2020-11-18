@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="<?= base_url('assets/pip/css/Projek.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/pip/css/Projek.css') ?>?ver=696">
     <title>Projek PIP</title>
 </head>
 
@@ -98,7 +98,7 @@
 
     </main>
     <footer class="App-footer">
-        <h1>Footer</h1>
+        <span id="copyright">2020 © Kabinet Rumah.</span>
     </footer>
 
 
