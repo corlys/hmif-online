@@ -55,34 +55,23 @@
     </script>
     <main class="App">
         <div class="search-wrapper">
-            <form action="<?= base_url('projekpip/'); ?>" method="GET">
-                <div class="input-field">
+            <form id="search-form" action="<?= base_url('projekpip/'); ?>" method="GET">
+                <div class="search-bar input-field">
                     <input id="keywords" type="text" class="validate" name="keywords">
                     <label for="keywords">Search Bar</label>
                 </div>
-                <div id="post-submit">
-                    <button type="submit" class="btn btn-primary" name="submit" value="submit" id="submitform">Search</button>
-                </div>
+                <button type="submit" class="btn btn-primary" name="submit" value="submit" id="submitform">Search</button>
             </form>
         </div>
         <div class="profile-wrapper">
-            <div id="profile-card" class="card">
-                <div class="card-content">
-                    <?php if ($this->session->userdata('nim')) : ?>
-                        <span class="card-title">Welcome, <?= $this->session->userdata('github_name'); ?></span>
-                    <?php else : ?>
-                        <span class="card-title">Welcome, Anon</span>
-                    <?php endif; ?>
-                </div>
-
-            </div>
+            <!-- bye bye -->
         </div>
         <div class="projects-wrapper" id="dataList">
             <?php if (empty($posts)) : ?>
                 <h3>No Data Found<h3>
                     <?php else : ?>
                         <?php foreach ($posts as $post) : ?>
-                            <div class="card horizontal">
+                            <div class="item-card card horizontal">
                                 <!-- <div class="card-image">
                                     <img src="https://lorempixel.com/100/190/nature/6">
                                 </div> -->

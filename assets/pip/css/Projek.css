@@ -160,6 +160,11 @@ body{
     .menu {
         display: inherit;
     }
+
+    .item-card {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 }
 
 .App-form{
@@ -173,18 +178,25 @@ body{
     /* grid-auto-rows: min-content; */
 }
 
+#search-form {
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-bar {
+    /* flex: 1 1 50%; */
+    width: 70%;
+}
+
 #loading{
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-#post-submit{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .App-footer{
     background-color: #282c34;
