@@ -35,14 +35,14 @@ body{
     cursor: pointer;
 }
 
-.logo .thin {
+.logo a .thin {
     font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
     font-weight: 100;
     color: white;
 }
 
-.logo .bold {
+.logo a .bold {
     color:  rgba(0, 136, 169, 1);
     font-family: 'Montserrat', sans-serif;
     font-size: 3rem;
