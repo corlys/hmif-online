@@ -81,7 +81,7 @@
                                         <p><?= $post['description']; ?></p>
                                     </div>
                                     <div class="card-action">
-                                        <a href="https://github.com/<?= $post['github_name']; ?>/<?= $post['nama_repo']; ?>"><span class="blue-text text-darken-2">Made By <?= $post['github_name']; ?></span></a>
+                                        <a target="_blank" href="https://github.com/<?= $post['github_name']; ?>/<?= $post['nama_repo']; ?>"><span class="blue-text text-darken-2">Made By <?= $post['github_name']; ?></span></a>
                                     </div>
                                 </div>
                             </div>
