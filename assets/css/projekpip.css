@@ -178,6 +178,10 @@ body{
     /* grid-auto-rows: min-content; */
 }
 
+.input-field input {
+    color: white;
+}
+
 #search-form {
     width: 90%;
     display: flex;
