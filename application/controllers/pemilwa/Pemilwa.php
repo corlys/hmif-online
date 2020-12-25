@@ -41,6 +41,12 @@ class Pemilwa extends CI_Controller
         echo $this->model_pemilwa->qCount("saVoFypI8sVGgasd");
     }
 
+    public function result()
+    {
+        $data['title'] = "PEMILWA 2020";
+        $this->parser->parse('pemilwa/result', $data);
+    }
+
     public function pote()
     {
         $errors = array();      // array to hold validation errors
