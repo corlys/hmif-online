@@ -199,17 +199,18 @@ class Form extends CI_Controller
 
                         if ($isTif) {
                             $scrappednim = $html->find('div[class="textgreen"] b', 0)->innertext;
-                            $md5nim = md5($scrappednim);
-                            $sh1nim = sha1($md5nim);
-                            $cryptnim  = crypt($sh1nim, $sallydontgo);
+                            // $md5nim = md5($scrappednim);
+                            // $sh1nim = sha1($md5nim);
+                            // $cryptnim  = crypt($sh1nim, $sallydontgo);
                             $name = $html->find('div[class=bio-name"]', 0)->innertext;
 
-                            $isSuccess = $this->model_pemilwa->duplicateCheck($cryptnim);
+                            // $isSuccess = $this->model_pemilwa->duplicateCheck($cryptnim);
+                            $isSuccess = $this->model_pemilwa->duplicateCheck($scrappednim);
                             // $redirectkey = $cryptnim;
                             if (!$isSuccess) {
                                 $data_pass = array(
                                     'nama_lengkap'  => $name,
-                                    'nim' => $cryptnim,
+                                    'nim' => $scrappednim,
                                     'pilih' => 0,
                                     'keuze' => "optie"
                                 );
@@ -227,10 +228,11 @@ class Form extends CI_Controller
                             // show a message of success and provide a true success variable
                             if ($isSuccess) {
 
-                                $udahPilih = $this->model_pemilwa->udahPilih($cryptnim);
+                                // $udahPilih = $this->model_pemilwa->udahPilih($cryptnim);
+                                $udahPilih = $this->model_pemilwa->udahPilih($scrappednim);
                                 if (!$udahPilih) {
                                     $userdata = array(
-                                        'cry' => $cryptnim,
+                                        'cry' => $scrappednim,
                                         'name' => $name
                                     );
                                     $this->session->set_userdata($userdata);
