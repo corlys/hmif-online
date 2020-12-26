@@ -55,12 +55,15 @@ class Epemilwa extends CI_Model
 
     function duplicateCheck($nim)
     {
-        $q =  $this->db->select('nim')
-            ->from('epemilwa')
-            ->where(array('nim' => $nim))->get();
+
+        log_message("debug", "masuk duplicateCheck");
+        $q =  $this->db->select('nim')->from('epemilwa')->where(array('nim' => $nim))->get();
+        log_message("debug", "passing query duplicateCheck");
         if ($q->num_rows() == 0) {
+            log_message("info", "tidak ada duplicate");
             return false;
         } else {
+            log_message("info", "ada duplicate");
             return true;
         }
     }
