@@ -185,9 +185,13 @@ class Form extends CI_Controller
                     curl_setopt($ch, CURLOPT_COOKIEJAR, "");
                     $response = curl_exec($ch);
 
-                    curl_close($ch);
+                    if (curl_errno($ch)) {
+                        log_message("error", curl_errno($ch));
+                    } else {
+                        log_message("info", "passing curl block");
+                    }
 
-                    log_message("info", "passing curl block");
+                    curl_close($ch);
 
                     $html = new simple_html_dom();
                     $html->load($response);
