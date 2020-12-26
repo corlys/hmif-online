@@ -119,6 +119,9 @@ class Form extends CI_Controller
 
     public function login_pemilwa()
     {
+
+        log_message("info", "Masuk Login Pemilwa");
+
         $errors = array();      // array to hold validation errors
         $data = array();      // array to pass back data
 
@@ -139,6 +142,8 @@ class Form extends CI_Controller
         $status = json_decode($output, true);
         // $status['success'] = true;
         if ($status['success']) {
+
+            log_message("info", "Berhasil Captcha");
 
             // var_dump($data_pass);
 
@@ -190,7 +195,7 @@ class Form extends CI_Controller
                     if ($html->find('div[class="textgreen"] b', 0)) {
 
                         //if doi is TIF
-
+                        log_message("info", "Berhasil CURL ke SIAM");
                         $isTif = false;
                         $jurusan = $html->find('div[class=bio-info"] div', 3)->innertext;
                         if (strpos($jurusan, 'Teknik Informatika') !== false) {
@@ -262,6 +267,7 @@ class Form extends CI_Controller
                     } else {
                         $data['success'] = false;
                         $data['message'] = "Password Salah";
+                        log_message("error", "Tidak Berhasil CURL ke SIAM");
                     }
                 } else {
                     $data['success'] = false;
