@@ -185,19 +185,10 @@ class Form extends CI_Controller
                     curl_setopt($ch, CURLOPT_COOKIEJAR, "");
                     $response = curl_exec($ch);
 
-                    if (curl_errno($ch)) {
-                        log_message("error", curl_errno($ch));
-                    } else {
-                        log_message("info", "passing curl block");
-                    }
-
                     curl_close($ch);
-
                     $html = new simple_html_dom();
                     $html->load($response);
                     $scrappednim = null;
-
-                    log_message("info", "passing html DOM block");
 
                     //if nim exist that means login success
 

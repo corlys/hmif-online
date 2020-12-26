@@ -62,8 +62,8 @@ $route['pemilwa/init'] = 'pemilwa/Form/init_pemilwa';
 $route['pemilwa/login'] = 'pemilwa/Form/login_pemilwa';
 $route['pemilwa/test'] = 'pemilwa/Form/test';
 $route['pemilwa/qc'] = 'pemilwa/Pemilwa/testqc';
-$route['pemilwa/register/add'] = 'pemilwa/Form/register_pemilwa';
 $route['pemilwa/result'] = 'pemilwa/Pemilwa/result';
+$route['pemilwa/register/add'] = 'pemilwa/Form/register_pemilwa';
 
 //Projek PIP
 $route["projekpip"] = 'projekpip/Projekpip/index';
