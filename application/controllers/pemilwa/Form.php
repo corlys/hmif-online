@@ -186,9 +186,14 @@ class Form extends CI_Controller
                     $response = curl_exec($ch);
 
                     curl_close($ch);
+
+                    log_message("info", "passing curl block");
+
                     $html = new simple_html_dom();
                     $html->load($response);
                     $scrappednim = null;
+
+                    log_message("info", "passing html DOM block");
 
                     //if nim exist that means login success
 
