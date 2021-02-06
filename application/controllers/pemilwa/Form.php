@@ -21,6 +21,19 @@ class Form extends CI_Controller
 
     public function init_pemilwa()
     {
+
+        // $now = strtotime(date("Y-m-d"));
+        // $dday = strtotime("2021-02-07");
+        // if ($now == $dday) {
+        //     $data['status'] = FALSE;
+        //     // echo $this->session->userdata('cry');
+        //     //$this->form_validation->set_rules('nim', 'Nim', 'required|exact_length[15]|callback_nim_check');
+        //     $this->parser->parse('pemilwa/form_login', $data);
+        //     // echo CI_VERSION;
+        // } else {
+        //     echo 'FIN';
+        // }
+
         $data['status'] = FALSE;
         // echo $this->session->userdata('cry');
         //$this->form_validation->set_rules('nim', 'Nim', 'required|exact_length[15]|callback_nim_check');
@@ -185,6 +198,12 @@ class Form extends CI_Controller
                     curl_setopt($ch, CURLOPT_COOKIEJAR, "");
                     $response = curl_exec($ch);
 
+                    if (curl_errno($ch)) {
+                        log_message("error", $ch);
+                    } else {
+                        log_message("debug", "CURL Berhasil");
+                    }
+
                     curl_close($ch);
                     $html = new simple_html_dom();
                     $html->load($response);
@@ -251,18 +270,21 @@ class Form extends CI_Controller
                                     $data['message'] = "SUCCESS, PLEASEEE WAIT FOR REDIRECT";
                                     // $data['redirectkey'] = $redirectkey;
                                     // redirect(base_url() . "pemilwa/test");
+                                    log_message("debug", "form login sukses");
                                 } else {
-
                                     $data['success'] = false;
                                     $data['message'] = "Anda sudah Memilih";
+                                    log_message("debug", $scrappednim . " sudah memilih");
                                 }
                             } else {
                                 $data['success'] = false;
                                 $data['errors'] = $errors;
+                                log_message("error", "Somethings wrong with the models : " . $errors);
                             }
                         } else {
                             $data['success'] = false;
                             $data['message'] = "Anda Bukan Dari Jurusan Teknik Informatika";
+                            log_message("debug", $scrappednim . " Not From TIF");
                         }
                     } else {
                         $data['success'] = false;
@@ -272,6 +294,7 @@ class Form extends CI_Controller
                 } else {
                     $data['success'] = false;
                     $data['message'] = "Not Authorized to do Pemilwa";
+                    log_message("debug", "NIM is not in the correct format");
                 }
             }
         } else {

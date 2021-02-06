@@ -14,6 +14,13 @@
     <link rel="stylesheet" href="https://codeseven.github.io/toastr/build/toastr.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Pendaftaran Pemilwa</title>
+    <style>
+        .btn-primary {
+            background: rgb(2, 0, 36);
+            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 0%, rgba(0, 212, 255, 1) 100%);
+            color: whitesmoke;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,10 +30,13 @@
     <div id="bacotDiv">
         <div class="bacotContainer negMargin">
             <div class="row" style="padding:0;margin:0">
-                <div class="col-6">
+                <div class="col-4">
                     <img class="logo-hmif" src="<?= base_url('assets/images/logo-hmif.png') ?>" alt="">
                 </div>
-                <div class="col-6">
+                <div class="col-4">
+                    <img class="logo-emif" src="<?= base_url('assets/images/logo-bpmif.png') ?>" alt="">
+                </div>
+                <div class="col-4">
                     <img class="logo-emif" src="<?= base_url('assets/images/logo-emif.png') ?>" alt="">
                 </div>
 
@@ -93,7 +103,7 @@
             $('form').submit(function(e) {
                 e.preventDefault();
 
-                $('button[type=submit], input[type=submit]').prop('disabled', true);
+                // $('button[type=submit], input[type=submit]').prop('disabled', true);
 
                 $('.form-group').removeClass('has-error'); // remove the error class
                 $('.help-block').remove(); // remove the error text

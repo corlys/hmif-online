@@ -33,9 +33,9 @@ class Epemilwa extends CI_Model
         }
     }
 
-    function qCount($nim)
+    function qCount($keuze)
     {
-        $query = $this->db->select('keuze')->from('epemilwa')->where(array('nim' => $nim))->get();
+        $query = $this->db->select('keuze')->from('epemilwa')->where(array('keuze' => $keuze))->get();
         return $query->num_rows();
     }
 
@@ -60,10 +60,10 @@ class Epemilwa extends CI_Model
         $q =  $this->db->select('nim')->from('epemilwa')->where(array('nim' => $nim))->get();
         log_message("debug", "passing query duplicateCheck");
         if ($q->num_rows() == 0) {
-            log_message("info", "tidak ada duplicate");
+            log_message("debug", "tidak ada duplicate");
             return false;
         } else {
-            log_message("info", "ada duplicate");
+            log_message("debug", "ada duplicate");
             return true;
         }
     }

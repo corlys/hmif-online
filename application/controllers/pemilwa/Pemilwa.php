@@ -38,13 +38,27 @@ class Pemilwa extends CI_Controller
 
     public function testqc()
     {
-        echo $this->model_pemilwa->qCount("saVoFypI8sVGgasd");
+        // $data['result1'] =  $this->model_pemilwa->qCount("saWfP.yNJuddo");
+        // $data['result2'] =  $this->model_pemilwa->qCount("saPDeb84AwR6U");
+        // $data['result3'] =  $this->model_pemilwa->qCount("saasALRQ3i.eA");
+        // $data['title'] = "PEMILWA 2020";
+        // // print_r($data);
+
+        // $this->parser->parse('pemilwa/result', $data);
     }
 
     public function result()
     {
-        $data['title'] = "PEMILWA 2020";
-        $this->parser->parse('pemilwa/result', $data);
+        $pass = $this->input->get('pass');
+        if ($pass === "c1d50662-77f9-4221-91b0-842f71cae010") {
+            $data['result1'] =  $this->model_pemilwa->qCount("saWfP.yNJuddo");
+            $data['result2'] =  $this->model_pemilwa->qCount("saPDeb84AwR6U");
+            $data['result3'] =  $this->model_pemilwa->qCount("saasALRQ3i.eA");
+            $data['title'] = "PEMILWA 2020";
+            $this->parser->parse('pemilwa/result', $data);
+        } else {
+            echo "not allowed";
+        }
     }
 
     public function pote()
@@ -80,7 +94,7 @@ class Pemilwa extends CI_Controller
                     $data['message'] = "Error Insert Data";
                 }
             } else {
-                $data['success'] = false;
+                $data['success'] = $this->input->post('calon');;
                 $data['message'] = "Error pada Form";
             }
         } else {

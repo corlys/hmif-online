@@ -15,26 +15,37 @@
     <main>
         <div class="candidate-item">
             <div class="candidate-img">
-                <img src="<?= base_url() ?>assets/keluargahmif/rumah/biroit.png" alt="candidate-img">
+                <img class="card-img" src="<?= base_url() ?>assets/keluargahmif/next-gen/PasonOne.jpg" alt="Card image cap">
             </div>
             <div class="candidate-details">
-                <h3>Muhammad</h3>
-                <h3>Reinhard</h3>
+                <h3>Alif</h3>
+                <h3>Dimi</h3>
             </div>
             <div class="candidate-votes">
-                <h1>313</h1>
+                <h1><?= $result2; ?></h1>
             </div>
         </div>
         <div class="candidate-item">
             <div class="candidate-img">
-                <img src="<?= base_url() ?>assets/keluargahmif/rumah/bumh.png" alt="candidate-img">
+                <img class="card-img" src="<?= base_url() ?>assets/keluargahmif/next-gen/PasonTwo.jpg" alt="Card image cap">
             </div>
             <div class="candidate-details">
-                <h3>Vela</h3>
-                <h3>Galuh</h3>
+                <h3>Fathur</h3>
+                <h3>Rafi</h3>
             </div>
             <div class="candidate-votes">
-                <h1>170</h1>
+                <h1><?= $result1; ?></h1>
+            </div>
+        </div>
+        <div class="candidate-item">
+            <div class="candidate-img">
+                <img class="card-img" src="<?= base_url() ?>assets/keluargahmif/next-gen/abstain.jpg" alt="Card image cap">
+            </div>
+            <div class="candidate-details">
+                <h3>Abstain</h3>
+            </div>
+            <div class="candidate-votes">
+                <h1><?= $result3; ?></h1>
             </div>
         </div>
     </main>
