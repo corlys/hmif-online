@@ -53,6 +53,7 @@
             justify-content: space-evenly;
             flex-direction: column;
             padding: 1rem;
+            border-radius: 10px;
         }
 
         h3 {
@@ -65,7 +66,7 @@
         }
 
         .header2 {
-            padding-top: 100px;
+            padding-top: 10px;
         }
 
         .calon-wrapper {
@@ -97,13 +98,29 @@
             background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 0%, rgba(0, 212, 255, 1) 100%);
             color: whitesmoke;
         }
+
+        #round-carrier {
+            margin: 0 auto;
+
+            background: lightblue;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+        }
     </style>
 
 <body>
     <div class="header2">
         <h4 id="title_calon" style="text-align:center;">Selamat Memilih</h4>
         <h5 style="text-align:center;"><?= $name; ?></h5>
-        <h2 style="text-align:center;" id="countdown">10</h2>
+        <div id="round-carrier">
+            <h4 style="text-align:center;" id="countdown"></h4>
+        </div>
     </div>
 
     <div class="formBox">
@@ -112,8 +129,6 @@
                 <div class="card">
                     <div class="calon-wrapper">
                         <h3 class="doi1">1</h3>
-                        <!-- <br />
-                        <h3 class="doi2">Dimi</h3> -->
                     </div>
                     <img class="card-img" src="assets/keluargahmif/next-gen/formal1.jpg" alt="Card image cap">
                     <p>Achmad Fais Alif Adityo</p>
@@ -126,8 +141,6 @@
                 <div class="card">
                     <div class="calon-wrapper">
                         <h3 class="doi1">2</h3>
-                        <!-- <br />
-                        <h3 class="doi2">Rafi</h3> -->
                     </div>
                     <img class="card-img" src="assets/keluargahmif/next-gen/formal2.jpg" alt="Card image cap">
                     <p>Muhammad Fathur Rahman Khairul</p>
@@ -165,7 +178,7 @@
 
     <script src="https://codeseven.github.io/toastr/build/toastr.min.js"></script>
 
-    <script type="text/javascript" src="<?= base_url('assets/js/voting.css') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('assets/js/voting.js') ?>?version=1.0.2"></script>
 
 
 </body>

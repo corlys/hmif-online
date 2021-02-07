@@ -39,6 +39,12 @@ class Epemilwa extends CI_Model
         return $query->num_rows();
     }
 
+    function liveCount()
+    {
+        $query = $this->db->select('*')->from('epemilwa')->where(array('pilih' => "1"))->get();
+        return $query->num_rows();
+    }
+
     function pote($pilih)
     {
         $nim = $this->session->userdata('cry');

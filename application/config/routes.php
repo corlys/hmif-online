@@ -64,6 +64,7 @@ $route['pemilwa/login'] = 'pemilwa/Form/login_pemilwa';
 $route['pemilwa/test'] = 'pemilwa/Form/test';
 $route['pemilwa/qc'] = 'pemilwa/Pemilwa/testqc';
 $route['pemilwa/result'] = 'pemilwa/Pemilwa/result';
+$route['pemilwa/farewell'] = 'pemilwa/Pemilwa/farewallPage';
 $route['pemilwa/register/add'] = 'pemilwa/Form/register_pemilwa';
 
 //Projek PIP

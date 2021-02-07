@@ -22,23 +22,45 @@ class Form extends CI_Controller
     public function init_pemilwa()
     {
 
-        // $now = strtotime(date("Y-m-d"));
-        // $dday = strtotime("2021-02-07");
-        // if ($now == $dday) {
-        //     $data['status'] = FALSE;
-        //     // echo $this->session->userdata('cry');
-        //     //$this->form_validation->set_rules('nim', 'Nim', 'required|exact_length[15]|callback_nim_check');
-        //     $this->parser->parse('pemilwa/form_login', $data);
-        //     // echo CI_VERSION;
-        // } else {
-        //     echo 'FIN';
-        // }
+        $now = strtotime(date("Y-m-d"));
+        $dday = strtotime("2021-02-07");
+        if ($now == $dday) {
 
-        $data['status'] = FALSE;
-        // echo $this->session->userdata('cry');
-        //$this->form_validation->set_rules('nim', 'Nim', 'required|exact_length[15]|callback_nim_check');
-        $this->parser->parse('pemilwa/form_login', $data);
-        // echo CI_VERSION;
+            $hour = strtotime(date("H:i"));
+            $starthour = strtotime("02:00");
+            $endhour = strtotime("10:00");
+
+            if ($hour <= $starthour) {
+                $remain = date("H:i", $starthour - $hour);
+            } else if ($hour >= $endhour) {
+                $remain = date("H:i", $hour - $endhour);
+            }
+
+            if ($hour >= $starthour && $hour <= $endhour) {
+                $data['status'] = FALSE;
+
+                $data['livecount'] = $this->model_pemilwa->liveCount();
+                $this->parser->parse('pemilwa/form_login', $data);
+            } else {
+                if ($remain >= $endhour) {
+                    echo "Pemilwa Sudah Selesai";
+                } else {
+                    echo "Pemilwa Dimulai ";
+                    echo $remain;
+                    echo " Jam Lagi.";
+                }
+            }
+        } else {
+            echo 'Maaf, Pemilwa ditutup.';
+        }
+
+        // $data['status'] = FALSE;
+
+        // $data['livecount'] = $this->model_pemilwa->liveCount();
+        // // echo $this->session->userdata('cry');
+        // //$this->form_validation->set_rules('nim', 'Nim', 'required|exact_length[15]|callback_nim_check');
+        // $this->parser->parse('pemilwa/form_login', $data);
+        // // echo CI_VERSION;
     }
 
     public function register_pemilwa()
@@ -310,16 +332,16 @@ class Form extends CI_Controller
     {
 
         // $postFields = array('status_loc' => 'Geolocation is not supported by your browser', 'lat' => '', 'long' => '', 'username' => '175150207111016', 'password' => '1Slamulanadinan', 'login' => 'Masuk',);
-        $sallydontgo = "saltysplatoon";
+        // $sallydontgo = "saltysplatoon";
 
-        $postFields = array(
-            "status_loc" => "Geolocation is not supported by your browser",
-            "lat" => "long",
-            "long" => "",
-            "username" => "NIM",
-            "password" => "Password",
-            "login" => "Masuk"
-        );
+        // $postFields = array(
+        //     "status_loc" => "Geolocation is not supported by your browser",
+        //     "lat" => "long",
+        //     "long" => "",
+        //     "username" => "NIM",
+        //     "password" => "Password",
+        //     "login" => "Masuk"
+        // );
 
         // $ch = curl_init();
         // curl_setopt($ch, CURLOPT_URL, "https://siam.ub.ac.id/index.php");
@@ -336,10 +358,13 @@ class Form extends CI_Controller
         // curl_close($ch);
         // $html = new simple_html_dom();
         // $html->load($response);
-        $scrappednim = "NIM";
-        $md5nim = md5($scrappednim);
-        $sh1nim = sha1($md5nim);
-        $cryptnim  = crypt($sh1nim, $sallydontgo);
-        echo $cryptnim;
+        // $scrappednim = "NIM";
+        // $md5nim = md5($scrappednim);
+        // $sh1nim = sha1($md5nim);
+        // $cryptnim  = crypt($sh1nim, $sallydontgo);
+        // echo $cryptnim;
+
+
+
     }
 }

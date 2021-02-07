@@ -20,14 +20,16 @@ $(document).ready(function () {
         toast: true,
         position: 'top',
         showConfirmButton: false,
-        timer: 2000
+        timer: 3000
     });
 
     $('#loading').hide();
 
 
-    if (sessionStorage.getItem("counter") === null) {
-        sessionStorage.setItem("counter", 10);
+
+    if (sessionStorage.getItem("counter") === null || sessionStorage.getItem('counter') < 0) {
+        sessionStorage.setItem("counter", 15);
+        document.getElementById("countdown").innerHTML = sessionStorage.getItem("counter");
     }
     // let countdown = 10;
 
@@ -57,7 +59,8 @@ $(document).ready(function () {
             $.ajax({
                 traditional: true,
                 type: 'POST',
-                url: '<?= base_url("pemilwa/vote") ?>',
+                url: 'https://hmif-filkom-ub.online/pemilwa/vote',
+                // url: '<?= base_url("pemilwa/vote") ?>',
                 data: postData, // data object
                 dataType: 'json', // what type of data do we expect back from the server
                 encode: true,
@@ -71,10 +74,22 @@ $(document).ready(function () {
                 }
 
             }).done(function (data) {
-                console.log(data)
+                // console.log(data)
                 // setInterval(() => {
-                sessionStorage.setItem("counter", 10);
-                window.location.replace("<?= base_url() ?>/pemilwa/init");
+
+                Toast.fire({
+                    type: 'warning',
+                    title: "Maaf waktu anda habis"
+                });
+
+
+                setInterval(() => {
+                    sessionStorage.setItem("counter", 16);
+                    window.location.replace("https://hmif-filkom-ub.online/pemilwa/init");
+                }, 3000);
+
+
+                // window.location.replace("<?= base_url() ?>/pemilwa/init");
                 // }, 10000);
             })
         }
@@ -105,7 +120,8 @@ $(document).ready(function () {
                 console.log(formData);
                 $.ajax({
                     type: 'POST',
-                    url: '<?= base_url("pemilwa/vote") ?>',
+                    url: 'https://hmif-filkom-ub.online/pemilwa/vote',
+                    // url: '<?= base_url("pemilwa/vote") ?>',
                     data: formData, // data object
                     dataType: 'json', // what type of data do we expect back from the server
                     encode: true,
@@ -130,9 +146,10 @@ $(document).ready(function () {
                             type: 'success',
                             title: data.message
                         });
-                        sessionStorage.setItem("counter", 10);
+                        sessionStorage.setItem("counter", 16);
                         // setInterval(() => {
-                        window.location.replace("<?= base_url() ?>/pemilwa/init");
+                        window.location.replace("https://hmif-filkom-ub.online/pemilwa/farewell");
+                        // window.location.replace("<?= base_url() ?>/pemilwa/init");
                         // }, 3000);
                     }
 

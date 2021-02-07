@@ -50,7 +50,7 @@ class Pemilwa extends CI_Controller
     public function result()
     {
         $pass = $this->input->get('pass');
-        if ($pass === "c1d50662-77f9-4221-91b0-842f71cae010") {
+        if ($pass === "472cd783-043c-4727-b5af-53703dfc2bc7") {
             $data['result1'] =  $this->model_pemilwa->qCount("saWfP.yNJuddo");
             $data['result2'] =  $this->model_pemilwa->qCount("saPDeb84AwR6U");
             $data['result3'] =  $this->model_pemilwa->qCount("saasALRQ3i.eA");
@@ -69,7 +69,7 @@ class Pemilwa extends CI_Controller
         $sallydontgo = "saltysplatoon";
         //
         if (empty($errors)) {
-            if ($this->input->post('calon')) {
+            if ($this->input->post('calon') && $this->session->userdata('cry')) {
 
                 $isSuccess = false;
 
@@ -102,5 +102,11 @@ class Pemilwa extends CI_Controller
             $data['message'] = "Ada Error";
         }
         echo json_encode($data);
+    }
+
+    public function farewallPage()
+    {
+        // echo "saty";
+        $this->load->view('pemilwa/thankyou_page');
     }
 }
